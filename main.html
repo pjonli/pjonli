@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PJ onli ! 💖</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Montserrat:wght@400;600&family=Lobster+Two:wght@700&family=Satisfy&family=Dancing+Script&display=swap");
+      .footerLink {
+        text-decoration: none;
+        color: white;
+        transition: opacity 0.25s ease-out;
+      }
+      .footerLink:hover {
+        color: white;
+        opacity: 0.8;
+      }
+      .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+        /* color: #0087ca; */
+      }
+
+      .hover-underline-animation::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+
+      .hover-underline-animation:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .btn-des {
+        font-family: "Dancing Script", cursive;
+        font-size: 24px;
+      }
+      .modal-heading {
+        font-family: "Satisfy", cursive;
+      }
+      .modal-des {
+        font-family: "Montserrat", sans-serif;
+      }
+      /* MUSIC PLAYER */
+      .audio-player {
+        --player-button-width: 3em;
+        --sound-button-width: 2em;
+        --space: 0.5em;
+        width: 15rem;
+        height: 15rem;
+        border: 1px solid black;
+      }
+
+      .icon-container {
+        width: 100%;
+        height: 100%;
+        background-image: url(./content2/tere-bina.jpeg);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .song-1 {
+        background-image: url(./content2/bade-ache-lagte-hain.jpeg);
+      }
+      .song-2 {
+        background-image: url(./content2/tere-bina.jpeg);
+      }
+      .song-3 {
+        background-image: url(./content2/somebody-to-you.png);
+      }
+
+      .audio-icon {
+        width: 90%;
+        height: 90%;
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .player-button {
+        background-color: transparent;
+        border: 0;
+        width: var(--player-button-width);
+        height: var(--player-button-width);
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .timeline {
+        -webkit-appearance: none;
+        width: calc(
+          100% -
+            (
+              var(--player-button-width) + var(--sound-button-width) +
+                var(--space)
+            )
+        );
+        height: 0.5em;
+        background-color: #e5e5e5;
+        border-radius: 5px;
+        background-size: 0% 100%;
+        background-image: linear-gradient(#de5e97, #de5e97);
+        background-repeat: no-repeat;
+        margin-right: var(--space);
+      }
+
+      .timeline::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.1s;
+        background-color: #a94672;
+      }
+
+      .timeline::-moz-range-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.1s;
+        background-color: #a94672;
+      }
+
+      .timeline::-ms-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.1s;
+        background-color: #a94672;
+      }
+
+      .timeline::-webkit-slider-thumb:hover {
+        background-color: #943f65;
+      }
+
+      .timeline:hover::-webkit-slider-thumb {
+        opacity: 1;
+      }
+
+      .timeline::-moz-range-thumb:hover {
+        background-color: #943f65;
+      }
+
+      .timeline:hover::-moz-range-thumb {
+        opacity: 1;
+      }
+
+      .timeline::-ms-thumb:hover {
+        background-color: #943f65;
+      }
+
+      .timeline:hover::-ms-thumb {
+        opacity: 1;
+      }
+
+      .timeline::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+      }
+
+      .timeline::-moz-range-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+      }
+
+      .timeline::-ms-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+      }
+
+      .sound-button {
+        background-color: transparent;
+        border: 0;
+        width: var(--sound-button-width);
+        height: var(--sound-button-width);
+        cursor: pointer;
+        padding: 0;
+      }
+      .song-title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+      .que {
+        font-family: "Montserrat", sans-serif;
+        color: #dbdbdb;
+      }
+      .ans {
+        font-family: "Montserrat", sans-serif;
+        color: #dfdfdf;
+        border-bottom: 1px solid rgb(214, 214, 214);
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/dffffa55e9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1
+      class="text-center p-3 display-5 bg-dark text-light mb-3"
+      style="font-family: 'Lobster Two', cursive"
+    >
+      PJ onli 💖
+    </h1>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="card mt-4 mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./content2/4.png"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 60px;
+                  font-family: '', cursive;
+                "
+              >
+                Priyanshi Jain
+              </h1>
+              <h2
+                class="card-text text-center"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 40px;
+                "
+              >
+                Prettiest of the Prettiest Girl I've ever known !
+              </h2>
+              <hr class="w-100" />
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Something about this cutie! 🫶🏻
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - The Prettiest
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                Hi PJ !! Here is a chhotu sa gift for you. You
+                                deserve the bestest of all dude. You're such an
+                                amazing person, to be honest. You are so cute
+                                yaar. And yeah, you said na - pretty prety
+                                bitch. But obviously not a bitch. You're a gem.
+                                I like you so much that you can't even imagine.
+                                Go ahead, aage kaafi kuch hai abhi !!
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/pretty.jpeg"
+                              class="img-fluid rounded-end"
+                              alt="..."
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-5 mb-3">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 60px;
+                  font-family: '', cursive;
+                "
+              >
+                Laila - oh - Laila
+              </h1>
+              <h2
+                class="card-text text-center"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 40px;
+                "
+              >
+                The one with the cutest smile !
+              </h2>
+
+              <hr class="w-100" />
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal2"
+              >
+                Laila and Arjun 🤍
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal2"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - Being Laila
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/laila.jpeg"
+                              class="img-fluid rounded-start"
+                              alt="..."
+                            />
+                          </div>
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                "Diving is like meditation. Insaan ko apni ek ek
+                                saans, ek ek pal ka ehsaas hota hai. Just
+                                imagine agar hum apni saari zindagi aise hi jee
+                                sakte. Be fully alive to each and every moment."
+                                ~ Laila <br /><br />
+                                PJ, if you're Laila, I really want to be your
+                                Arjun. But it doesn't mean that I want to be
+                                that Arjun from the movie. I want to be YOUR
+                                Arjun, the one whom you explain what he is doing
+                                wrong in life, make him realise his worth, the
+                                one with whom you feel comfortable.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="./content2/2.png"
+              class="img-fluid rounded-end"
+              alt="..."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="card mt-5 mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./content2/3.png"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 55px;
+                  font-family: '', cursive;
+                "
+              >
+                Naina for others, Bunny for me
+              </h1>
+              <h2
+                class="card-text text-center"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 35px;
+                "
+              >
+                "Tum pehle bhi itni khoobsurat thi ya waqt ne kiya koi haseen
+                sitam?"
+              </h2>
+              <hr class="w-100" />
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal3"
+              >
+                Bunny with Bunny ♡
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal3"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - Bunny or Naina?
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                Oye Bunny, khud ko Bunny batati hai, toh thoda
+                                ban bhi toh uske jaisi. Aise har baat par guilty
+                                feel nahi karta hai Bunny. Chill karooo. Varna
+                                fir toh Naina hi hogi na tuu. Ab its upto you ki
+                                who do you want to be like - Bunny or Naina.
+                                <br /><br />
+                                “Teri smile kitni dangerous hai pata hai? Mere
+                                paas dil hota toh pakka aa jata ispe.” ~ Bunny
+                                (Mai bhi toh Bunny hu naa)
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/naina.jpeg"
+                              class="img-fluid rounded-end"
+                              alt="..."
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-5 mb-3">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 60px;
+                  font-family: '', cursive;
+                "
+              >
+                Pretty - pretty
+              </h1>
+              <h2
+                class="card-text text-center mx-5"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 35px;
+                "
+              >
+                "Seize the day my friend… pehle is din ko poori tarah jiyo, phir
+                chalis ke baare mein sochna"
+              </h2>
+
+              <hr class="w-100" />
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal4"
+              >
+                Lets be Bakchod together? 🤝🏻
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal4"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - The Bakchodi Queen
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/bakchod.jpg"
+                              class="img-fluid rounded-start"
+                              alt="..."
+                            />
+                          </div>
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                Tbh, my vibe matched with yours the very first
+                                time we met. And with time, it matched more and
+                                more as I got to know you better. If not
+                                partners yet, lets be Bakchod Partners for now
+                                then? What say? And yeah, bakchodi toh vaise bhi
+                                kar hi lete hai whenever we meet. Kullahd fodna
+                                after having chaii >>>>>>. And now ofc bottle
+                                fodni hai sath me! And obviously is
+                                Pretty-Pretty girl ke sath bakchodi karne ka
+                                mauka sabko haasil nahi hota hai. Toh I'll be
+                                lucky if it happens<br /><br />
+                                (Sets his collar and asks: )<br />
+                                "Kidhar jaane ka hai madam log?" ~ AutoWala<br />
+                                (Everyone around giving looks)
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="./content2/1.png"
+              class="img-fluid rounded-end"
+              alt="..."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="card mt-5 mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./content2/5.png"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 55px;
+                  font-family: '', cursive;
+                "
+              >
+                PJ doin' PJs
+              </h1>
+              <h2
+                class="card-text text-center mx-5"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 35px;
+                "
+              >
+                A stand-up comedy special soon by one and only the bestest of
+                all - Priyanshi Jain aka PJ !
+              </h2>
+              <hr class="w-100" />
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal5"
+              >
+                Something about this cutie! 🫶🏻
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal5"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - The Prettiest
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                Hi PJ !! Here is a chhotu sa gift for you. You
+                                deserve the bestest of all dude. You're such an
+                                amazing person, to be honest. You are so cute
+                                yaar. And yeah, you said na - pretty prety
+                                bitch. But obviously not a bitch. You're a gem.
+                                I like you so much that you can't even imagine.
+                                Go ahead, aage kaafi kuch hai abhi !!
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/pretty.jpeg"
+                              class="img-fluid rounded-end"
+                              alt="..."
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-5 mb-5">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div
+              class="card-body d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <hr class="w-100" />
+              <h1
+                class="card-title text-center"
+                style="
+                  margin-bottom: 50px;
+                  font-size: 60px;
+                  font-family: '', cursive;
+                "
+              >
+                Chal chal hoshiyaari !
+              </h1>
+              <h2
+                class="card-text text-center mx-5"
+                style="
+                  font-family: 'Amatic SC', cursive;
+                  font-weight: 700;
+                  font-size: 35px;
+                "
+              >
+                <i class="fa-solid fa-music fa-xs me-3"></i>Meri har hoshiyaari
+                bas tum tak
+              </h2>
+
+              <hr class="w-100" />
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-dark my-5 btn-des"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal6"
+              >
+                Lets be Bakchod together? 🤝🏻
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal6"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5 modal-heading"
+                        id="exampleModalLabel"
+                      >
+                        PJ - The Bakchodi Queen
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-2">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img
+                              src="./content2/hoshiyaari.png"
+                              class="img-fluid rounded-start"
+                              alt="..."
+                            />
+                          </div>
+                          <div class="col-md-8">
+                            <div
+                              class="card-body d-flex justify-content-center align-items-center"
+                              style="height: 100%"
+                            >
+                              <p class="p-3 modal-des">
+                                Tbh, my vibe matched with yours the very first
+                                time we met. And with time, it matched more and
+                                more as I got to know you better. If not
+                                partners yet, lets be Bakchod Partners for now
+                                then? What say? And yeah, bakchodi toh vaise bhi
+                                kar hi lete hai whenever we meet. Kullahd fodna
+                                after having chaii >>>>>>. And now ofc bottle
+                                fodni hai sath me! And obviously is
+                                Pretty-Pretty girl ke sath bakchodi karne ka
+                                mauka sabko haasil nahi hota hai. Toh I'll be
+                                lucky if it happens<br /><br />
+                                (Sets his collar and asks: )<br />
+                                "Kidhar jaane ka hai madam log?" ~ AutoWala<br />
+                                (Everyone around giving looks)
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="./content2/6.png"
+              class="img-fluid rounded-end"
+              alt="..."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER TRIAL -->
+
+    <!-- <div
+      class="footer bg-dark text-light d-flex justify-content-center align-items-center flex-column"
+    > -->
+    <!-- <div class="container p-5">
+        Move your cursor over these
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark">
+            <a
+              href="#"
+              class="footerLink hover-underline-animation"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              data-bs-title="<b>YOU</b> are the definition of Perfect for me !"
+              >Why YOU?</a
+            >
+          </li>
+          <li class="list-group-item bg-dark">
+            <a
+              href="#"
+              class="footerLink hover-underline-animation"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              data-bs-title="I'm always here for you no matter what. Just a call away from you. <3"
+              >Feeling Low?</a
+            >
+          </li>
+          <li class="list-group-item bg-dark">
+            <a
+              href="#"
+              class="footerLink hover-underline-animation"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              data-bs-title="Just wanted to make you smile. It makes me happy to see/make you smile.<br><em>Ae vekh kinni cutely hasdi payii hai ye kudii hunne!</em>"
+              >Why all this?</a
+            >
+          </li>
+          <li class="list-group-item bg-dark">
+            <a
+              href="/"
+              class="footerLink hover-underline-animation"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              data-bs-title="<audio controls><source src='./content2/fav.mp3' type='audio/mp3' /></audio>"
+              >Instant Mood Uplifter??</a
+            >
+          </li>
+          <li class="list-group-item bg-dark">
+            <a
+              href="#"
+              class="footerLink hover-underline-animation"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-html="true"
+              data-bs-title="<img src='./content2/firstDay.jpg' width='200px' style='z-index: 2'/>"
+              >Remember the day we first met?</a
+            >
+          </li>
+        </ul>
+      </div> -->
+
+    <!-- </div> -->
+
+    <div class="bg-dark text-light p-5">
+      <div
+        class="display-5 pb-3 text-center heading"
+        style="font-family: 'Lobster Two', cursive; color: #e4e4e4"
+      >
+        <u>FAQs</u> 😂
+      </div>
+      <div class="container">
+        <div class="item">
+          <div class="que display-5 text-center p-4">Why you?</div>
+          <div class="ans h4 text-center pb-5">
+            <b>YOU</b> are the definition of Perfect for me !
+          </div>
+        </div>
+        <div class="item">
+          <div class="que display-5 text-center p-4">Feeling Low?</div>
+          <div class="ans h4 text-center pb-5">
+            I'm always here for you no matter what. Just a call away from you.
+          </div>
+        </div>
+        <div class="item">
+          <div class="que display-5 text-center p-4">
+            Not sure about feelings?
+          </div>
+          <div class="ans h4 text-center pb-5">
+            It's okay ! I get it. You have time as much as you want. I am always
+            there waiting for you ! &lt3
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUSIC PLAYER -->
+
+    <div class="container mb-5">
+      <div
+        class="display-5 p-5 text-center heading"
+        style="font-family: 'Lobster Two', cursive"
+      >
+        <u>Let's Vibe! 🎶</u>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div
+            class="card my-4"
+            style="
+              padding: 20px 20px 112px;
+              width: fit-content;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <div class="audio-player">
+              <div class="icon-container song-1"></div>
+              <div class="card-title text-center mt-3 song-title">
+                Bade Ache Lagte Hain
+              </div>
+              <audio src="./content2/fav.mp3" id="audio"></audio>
+              <div class="controls">
+                <button class="player-button" id="player-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <input
+                  type="range"
+                  class="timeline"
+                  id="timeline"
+                  max="100"
+                  value="0"
+                />
+                <button class="sound-button" id="sound-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card my-4"
+            style="
+              padding: 20px 20px 112px;
+              width: fit-content;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <div class="audio-player">
+              <div class="icon-container song-2"></div>
+              <div class="card-title text-center mt-3 song-title">
+                Tere Bina
+              </div>
+              <audio
+                src="./content2/Tere Bina - Zaeden.mp3"
+                id="audio2"
+              ></audio>
+              <div class="controls">
+                <button class="player-button" id="player-button2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <input
+                  type="range"
+                  class="timeline"
+                  id="timeline2"
+                  max="100"
+                  value="0"
+                />
+                <button class="sound-button" id="sound-button2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card my-4"
+            style="
+              padding: 20px 20px 112px;
+              width: fit-content;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            <div class="audio-player">
+              <div class="icon-container song-3"></div>
+              <div class="card-title text-center mt-3 song-title">
+                Somebody To You
+              </div>
+              <audio src="./content2/Somebody-to-You.mp3" id="audio3"></audio>
+              <div class="controls">
+                <button class="player-button" id="player-button3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <input
+                  type="range"
+                  class="timeline"
+                  id="timeline3"
+                  max="100"
+                  value="0"
+                />
+                <button class="sound-button" id="sound-button3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#3D3132"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM REELS -->
+    <div class="bg-dark text-light">
+      <div class="container pb-5">
+        <div
+          class="display-5 heading text-center p-5"
+          style="font-family: 'Lobster Two', cursive"
+        >
+          <u>Only for you !</u> 🤍
+        </div>
+        <div class="row">
+          <div class="col">
+            <div
+              class="posts p-4 d-flex justify-content-center align-items-center"
+            >
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/CkngkkaJQ1o/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+                style="
+                  background: #fff;
+                  border: 0;
+                  border-radius: 3px;
+                  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5),
+                    0 1px 10px 0 rgba(0, 0, 0, 0.15);
+                  margin: 1px;
+                  max-width: 540px;
+                  min-width: 326px;
+                  padding: 0;
+                "
+              >
+                <div style="padding: 16px">
+                  <a
+                    href="https://www.instagram.com/reel/CkngkkaJQ1o/?utm_source=ig_embed&amp;utm_campaign=loading"
+                    style="
+                      background: #ffffff;
+                      line-height: 0;
+                      padding: 0 0;
+                      text-align: center;
+                      text-decoration: none;
+                      width: 100%;
+                    "
+                    target="_blank"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 50%;
+                          flex-grow: 0;
+                          height: 40px;
+                          margin-right: 14px;
+                          width: 40px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: column;
+                          flex-grow: 1;
+                          justify-content: center;
+                        "
+                      >
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            margin-bottom: 6px;
+                            width: 100px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            width: 60px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div style="padding: 19% 0"></div>
+                    <div
+                      style="
+                        display: block;
+                        height: 50px;
+                        margin: 0 auto 12px;
+                        width: 50px;
+                      "
+                    >
+                      <svg
+                        width="50px"
+                        height="50px"
+                        viewBox="0 0 60 60"
+                        version="1.1"
+                        xmlns="https://www.w3.org/2000/svg"
+                        xmlns:xlink="https://www.w3.org/1999/xlink"
+                      >
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            transform="translate(-511.000000, -20.000000)"
+                            fill="#000000"
+                          >
+                            <g>
+                              <path
+                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="padding-top: 8px">
+                      <div
+                        style="
+                          color: #3897f0;
+                          font-family: Arial, sans-serif;
+                          font-size: 14px;
+                          font-style: normal;
+                          font-weight: 550;
+                          line-height: 18px;
+                        "
+                      >
+                        View this post on Instagram
+                      </div>
+                    </div>
+                    <div style="padding: 12.5% 0"></div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 14px;
+                        align-items: center;
+                      "
+                    >
+                      <div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(0px) translateY(7px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            height: 12.5px;
+                            transform: rotate(-45deg) translateX(3px)
+                              translateY(1px);
+                            width: 12.5px;
+                            flex-grow: 0;
+                            margin-right: 14px;
+                            margin-left: 2px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(9px) translateY(-18px);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: 8px">
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            flex-grow: 0;
+                            height: 20px;
+                            width: 20px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 2px solid transparent;
+                            border-left: 6px solid #f4f4f4;
+                            border-bottom: 2px solid transparent;
+                            transform: translateX(16px) translateY(-4px)
+                              rotate(30deg);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: auto">
+                        <div
+                          style="
+                            width: 0px;
+                            border-top: 8px solid #f4f4f4;
+                            border-right: 8px solid transparent;
+                            transform: translateY(16px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            flex-grow: 0;
+                            height: 12px;
+                            width: 16px;
+                            transform: translateY(-4px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 8px solid #f4f4f4;
+                            border-left: 8px solid transparent;
+                            transform: translateY(-4px) translateX(8px);
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                        justify-content: center;
+                        margin-bottom: 24px;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          margin-bottom: 6px;
+                          width: 224px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          width: 144px;
+                        "
+                      ></div></div
+                  ></a>
+                  <p
+                    style="
+                      color: #c9c8cd;
+                      font-family: Arial, sans-serif;
+                      font-size: 14px;
+                      line-height: 17px;
+                      margin-bottom: 0;
+                      margin-top: 8px;
+                      overflow: hidden;
+                      padding: 8px 0 7px;
+                      text-align: center;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                    "
+                  >
+                    <a
+                      href="https://www.instagram.com/reel/CkngkkaJQ1o/?utm_source=ig_embed&amp;utm_campaign=loading"
+                      style="
+                        color: #c9c8cd;
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 17px;
+                        text-decoration: none;
+                      "
+                      target="_blank"
+                      >A post shared by STAY CALM (@pacified.vibes)</a
+                    >
+                  </p>
+                </div>
+              </blockquote>
+              <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="posts p-4 d-flex justify-content-center align-items-center"
+            >
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/CmDHOl7jkOW/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+                style="
+                  background: #fff;
+                  border: 0;
+                  border-radius: 3px;
+                  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5),
+                    0 1px 10px 0 rgba(0, 0, 0, 0.15);
+                  margin: 1px;
+                  max-width: 540px;
+                  min-width: 326px;
+                  padding: 0;
+                "
+              >
+                <div style="padding: 16px">
+                  <a
+                    href="https://www.instagram.com/reel/CmDHOl7jkOW/?utm_source=ig_embed&amp;utm_campaign=loading"
+                    style="
+                      background: #ffffff;
+                      line-height: 0;
+                      padding: 0 0;
+                      text-align: center;
+                      text-decoration: none;
+                      width: 100%;
+                    "
+                    target="_blank"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 50%;
+                          flex-grow: 0;
+                          height: 40px;
+                          margin-right: 14px;
+                          width: 40px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: column;
+                          flex-grow: 1;
+                          justify-content: center;
+                        "
+                      >
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            margin-bottom: 6px;
+                            width: 100px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            width: 60px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div style="padding: 19% 0"></div>
+                    <div
+                      style="
+                        display: block;
+                        height: 50px;
+                        margin: 0 auto 12px;
+                        width: 50px;
+                      "
+                    >
+                      <svg
+                        width="50px"
+                        height="50px"
+                        viewBox="0 0 60 60"
+                        version="1.1"
+                        xmlns="https://www.w3.org/2000/svg"
+                        xmlns:xlink="https://www.w3.org/1999/xlink"
+                      >
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            transform="translate(-511.000000, -20.000000)"
+                            fill="#000000"
+                          >
+                            <g>
+                              <path
+                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="padding-top: 8px">
+                      <div
+                        style="
+                          color: #3897f0;
+                          font-family: Arial, sans-serif;
+                          font-size: 14px;
+                          font-style: normal;
+                          font-weight: 550;
+                          line-height: 18px;
+                        "
+                      >
+                        View this post on Instagram
+                      </div>
+                    </div>
+                    <div style="padding: 12.5% 0"></div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 14px;
+                        align-items: center;
+                      "
+                    >
+                      <div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(0px) translateY(7px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            height: 12.5px;
+                            transform: rotate(-45deg) translateX(3px)
+                              translateY(1px);
+                            width: 12.5px;
+                            flex-grow: 0;
+                            margin-right: 14px;
+                            margin-left: 2px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(9px) translateY(-18px);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: 8px">
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            flex-grow: 0;
+                            height: 20px;
+                            width: 20px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 2px solid transparent;
+                            border-left: 6px solid #f4f4f4;
+                            border-bottom: 2px solid transparent;
+                            transform: translateX(16px) translateY(-4px)
+                              rotate(30deg);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: auto">
+                        <div
+                          style="
+                            width: 0px;
+                            border-top: 8px solid #f4f4f4;
+                            border-right: 8px solid transparent;
+                            transform: translateY(16px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            flex-grow: 0;
+                            height: 12px;
+                            width: 16px;
+                            transform: translateY(-4px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 8px solid #f4f4f4;
+                            border-left: 8px solid transparent;
+                            transform: translateY(-4px) translateX(8px);
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                        justify-content: center;
+                        margin-bottom: 24px;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          margin-bottom: 6px;
+                          width: 224px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          width: 144px;
+                        "
+                      ></div></div
+                  ></a>
+                  <p
+                    style="
+                      color: #c9c8cd;
+                      font-family: Arial, sans-serif;
+                      font-size: 14px;
+                      line-height: 17px;
+                      margin-bottom: 0;
+                      margin-top: 8px;
+                      overflow: hidden;
+                      padding: 8px 0 7px;
+                      text-align: center;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                    "
+                  >
+                    <a
+                      href="https://www.instagram.com/reel/CmDHOl7jkOW/?utm_source=ig_embed&amp;utm_campaign=loading"
+                      style="
+                        color: #c9c8cd;
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 17px;
+                        text-decoration: none;
+                      "
+                      target="_blank"
+                      >A post shared by diego (@luvvreels)</a
+                    >
+                  </p>
+                </div>
+              </blockquote>
+              <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="posts p-4 d-flex justify-content-center align-items-center"
+            >
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/ClgVHHOLayc/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+                style="
+                  background: #fff;
+                  border: 0;
+                  border-radius: 3px;
+                  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5),
+                    0 1px 10px 0 rgba(0, 0, 0, 0.15);
+                  margin: 1px;
+                  max-width: 540px;
+                  min-width: 326px;
+                  padding: 0;
+                "
+              >
+                <div style="padding: 16px">
+                  <a
+                    href="https://www.instagram.com/reel/ClgVHHOLayc/?utm_source=ig_embed&amp;utm_campaign=loading"
+                    style="
+                      background: #ffffff;
+                      line-height: 0;
+                      padding: 0 0;
+                      text-align: center;
+                      text-decoration: none;
+                      width: 100%;
+                    "
+                    target="_blank"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 50%;
+                          flex-grow: 0;
+                          height: 40px;
+                          margin-right: 14px;
+                          width: 40px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: column;
+                          flex-grow: 1;
+                          justify-content: center;
+                        "
+                      >
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            margin-bottom: 6px;
+                            width: 100px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 4px;
+                            flex-grow: 0;
+                            height: 14px;
+                            width: 60px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div style="padding: 19% 0"></div>
+                    <div
+                      style="
+                        display: block;
+                        height: 50px;
+                        margin: 0 auto 12px;
+                        width: 50px;
+                      "
+                    >
+                      <svg
+                        width="50px"
+                        height="50px"
+                        viewBox="0 0 60 60"
+                        version="1.1"
+                        xmlns="https://www.w3.org/2000/svg"
+                        xmlns:xlink="https://www.w3.org/1999/xlink"
+                      >
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            transform="translate(-511.000000, -20.000000)"
+                            fill="#000000"
+                          >
+                            <g>
+                              <path
+                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"
+                              ></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="padding-top: 8px">
+                      <div
+                        style="
+                          color: #3897f0;
+                          font-family: Arial, sans-serif;
+                          font-size: 14px;
+                          font-style: normal;
+                          font-weight: 550;
+                          line-height: 18px;
+                        "
+                      >
+                        View this post on Instagram
+                      </div>
+                    </div>
+                    <div style="padding: 12.5% 0"></div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 14px;
+                        align-items: center;
+                      "
+                    >
+                      <div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(0px) translateY(7px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            height: 12.5px;
+                            transform: rotate(-45deg) translateX(3px)
+                              translateY(1px);
+                            width: 12.5px;
+                            flex-grow: 0;
+                            margin-right: 14px;
+                            margin-left: 2px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            height: 12.5px;
+                            width: 12.5px;
+                            transform: translateX(9px) translateY(-18px);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: 8px">
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            flex-grow: 0;
+                            height: 20px;
+                            width: 20px;
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 2px solid transparent;
+                            border-left: 6px solid #f4f4f4;
+                            border-bottom: 2px solid transparent;
+                            transform: translateX(16px) translateY(-4px)
+                              rotate(30deg);
+                          "
+                        ></div>
+                      </div>
+                      <div style="margin-left: auto">
+                        <div
+                          style="
+                            width: 0px;
+                            border-top: 8px solid #f4f4f4;
+                            border-right: 8px solid transparent;
+                            transform: translateY(16px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            background-color: #f4f4f4;
+                            flex-grow: 0;
+                            height: 12px;
+                            width: 16px;
+                            transform: translateY(-4px);
+                          "
+                        ></div>
+                        <div
+                          style="
+                            width: 0;
+                            height: 0;
+                            border-top: 8px solid #f4f4f4;
+                            border-left: 8px solid transparent;
+                            transform: translateY(-4px) translateX(8px);
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                        justify-content: center;
+                        margin-bottom: 24px;
+                      "
+                    >
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          margin-bottom: 6px;
+                          width: 224px;
+                        "
+                      ></div>
+                      <div
+                        style="
+                          background-color: #f4f4f4;
+                          border-radius: 4px;
+                          flex-grow: 0;
+                          height: 14px;
+                          width: 144px;
+                        "
+                      ></div></div
+                  ></a>
+                  <p
+                    style="
+                      color: #c9c8cd;
+                      font-family: Arial, sans-serif;
+                      font-size: 14px;
+                      line-height: 17px;
+                      margin-bottom: 0;
+                      margin-top: 8px;
+                      overflow: hidden;
+                      padding: 8px 0 7px;
+                      text-align: center;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                    "
+                  >
+                    <a
+                      href="https://www.instagram.com/reel/ClgVHHOLayc/?utm_source=ig_embed&amp;utm_campaign=loading"
+                      style="
+                        color: #c9c8cd;
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 17px;
+                        text-decoration: none;
+                      "
+                      target="_blank"
+                      >A post shared by 𝐃𝐀𝐍𝐈 𝐀𝐙𝐋 (@daniazl)</a
+                    >
+                  </p>
+                </div>
+              </blockquote>
+              <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS FILES -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // const tooltipTriggerList = document.querySelectorAll(
+      //   '[data-bs-toggle="tooltip"]'
+      // );
+      // const tooltipList = [...tooltipTriggerList].map(
+      //   (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      // );
+      // let hey = document.getElementById("Hey");
+      // let hi = document.getElementById("Hi");
+      // hey.addEventListener("click", () => {
+      //   hey.style.display = "none";
+      //   hi.style.display = "inline";
+      // });
+      // hi.addEventListener("click", () => {
+      //   hi.style.display = "none";
+      //   hey.style.display = "inline";
+      // });
+    </script>
+    <!-- MUSIC PLAYER -->
+    <script>
+      const playerButton = document.getElementById("player-button"),
+        audio = document.getElementById("audio"),
+        timeline = document.getElementById("timeline"),
+        soundButton = document.getElementById("sound-button"),
+        playIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+      </svg>
+          `,
+        pauseIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+    </svg>
+          `,
+        soundIcon = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
+    </svg>`,
+        muteIcon = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>`;
+
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+          playerButton.innerHTML = pauseIcon;
+        } else {
+          audio.pause();
+          playerButton.innerHTML = playIcon;
+        }
+      }
+
+      playerButton.addEventListener("click", toggleAudio);
+
+      function changeTimelinePosition() {
+        const percentagePosition = (100 * audio.currentTime) / audio.duration;
+        timeline.style.backgroundSize = `${percentagePosition}% 100%`;
+        timeline.value = percentagePosition;
+      }
+
+      audio.ontimeupdate = changeTimelinePosition;
+
+      function audioEnded() {
+        playerButton.innerHTML = playIcon;
+      }
+
+      audio.onended = audioEnded;
+
+      function changeSeek() {
+        const time = (timeline.value * audio.duration) / 100;
+        audio.currentTime = time;
+      }
+
+      timeline.addEventListener("change", changeSeek);
+
+      function toggleSound() {
+        audio.muted = !audio.muted;
+        soundButton.innerHTML = audio.muted ? muteIcon : soundIcon;
+      }
+
+      soundButton.addEventListener("click", toggleSound);
+    </script>
+    <script>
+      const playerButton2 = document.getElementById("player-button2"),
+        audio2 = document.getElementById("audio2"),
+        timeline2 = document.getElementById("timeline2"),
+        soundButton2 = document.getElementById("sound-button2"),
+        playIcon2 = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+      </svg>
+          `,
+        pauseIcon2 = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+    </svg>
+          `,
+        soundIcon2 = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
+    </svg>`,
+        muteIcon2 = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>`;
+
+      function toggleAudio2() {
+        if (audio2.paused) {
+          audio2.play();
+          playerButton2.innerHTML = pauseIcon2;
+        } else {
+          audio2.pause();
+          playerButton2.innerHTML = playIcon2;
+        }
+      }
+
+      playerButton2.addEventListener("click", toggleAudio2);
+
+      function changeTimelinePosition2() {
+        const percentagePosition = (100 * audio2.currentTime) / audio2.duration;
+        timeline2.style.backgroundSize = `${percentagePosition}% 100%`;
+        timeline2.value = percentagePosition;
+      }
+
+      audio2.ontimeupdate = changeTimelinePosition2;
+
+      function audioEnded2() {
+        playerButton2.innerHTML = playIcon2;
+      }
+
+      audio2.onended = audioEnded2;
+
+      function changeSeek2() {
+        const time = (timeline2.value * audio2.duration) / 100;
+        audio2.currentTime = time;
+      }
+
+      timeline2.addEventListener("change", changeSeek2);
+
+      function toggleSound2() {
+        audio2.muted = !audio2.muted;
+        soundButton2.innerHTML = audio2.muted ? muteIcon2 : soundIcon2;
+      }
+
+      soundButton2.addEventListener("click", toggleSound2);
+    </script>
+    <script>
+      const playerButton3 = document.getElementById("player-button3"),
+        audio3 = document.getElementById("audio3"),
+        timeline3 = document.getElementById("timeline3"),
+        soundButton3 = document.getElementById("sound-button3"),
+        playIcon3 = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+      </svg>
+          `,
+        pauseIcon3 = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+    </svg>
+          `,
+        soundIcon3 = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
+    </svg>`,
+        muteIcon3 = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>`;
+
+      function toggleAudio3() {
+        if (audio3.paused) {
+          audio3.play();
+          playerButton3.innerHTML = pauseIcon3;
+        } else {
+          audio3.pause();
+          playerButton3.innerHTML = playIcon3;
+        }
+      }
+
+      playerButton3.addEventListener("click", toggleAudio3);
+
+      function changeTimelinePosition3() {
+        const percentagePosition = (100 * audio3.currentTime) / audio3.duration;
+        timeline3.style.backgroundSize = `${percentagePosition}% 100%`;
+        timeline3.value = percentagePosition;
+      }
+
+      audio3.ontimeupdate = changeTimelinePosition3;
+
+      function audioEnded3() {
+        playerButton3.innerHTML = playIcon3;
+      }
+
+      audio3.onended = audioEnded3;
+
+      function changeSeek3() {
+        const time = (timeline3.value * audio3.duration) / 100;
+        audio3.currentTime = time;
+      }
+
+      timeline3.addEventListener("change", changeSeek3);
+
+      function toggleSound3() {
+        audio3.muted = !audio3.muted;
+        soundButton3.innerHTML = audio3.muted ? muteIcon3 : soundIcon3;
+      }
+
+      soundButton3.addEventListener("click", toggleSound3);
+    </script>
+  </body>
+</html>
